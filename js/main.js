@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   $(".next").click(
     function(){
-        
+      nextElement()
     }
   );
 
@@ -14,10 +14,34 @@ $(document).ready(function () {
   );
 });
 //FUNZIONI
-//cliccando su freccia destra dello slider la class .active viene tolta a img currentElement
-//la class .active viene aggiunta ad element img successivo dello slider
-//quando si arriva a last-child img element dello slider la class .active viene data a first-child img element
+//cliccando su freccia destra dello slider la class .active viene tolta a currentElement
+//la class .active viene aggiunta ad element successivo dello slider
+//quando si arriva a last-child element dello slider la class .active viene data a first-child element
+function nextElement(){
+  //img slider
+  //immagine corrente slider
+  var currentImg = $(".images > .active");
 
-//cliccando su freccia destra dello slider la class .active viene tolta a i.fa-circle currentElement
-//la class .active viene aggiunta ad i.fa-circle element successivo dello slider
-//quando si arriva a last-child i.fa-circle element dello slider la class .active viene data a first-child i.fa-circle element
+  //rimuovi classe .active a immagine corrente
+  currentImg.removeClass("active");
+
+  //aggiungi classe .active a immagine successiva
+  
+
+
+
+  //circles slider
+}
+
+
+
+
+
+//cliccando su freccia sinistra dello slider la class .active viene tolta a currentElement
+//la class .active viene aggiunta ad element precedente dello slider
+//quando si arriva a first-child element dello slider la class .active viene data a last-child element
+function prevElement(){
+  //img slider
+
+  //circles slider
+}
