@@ -18,12 +18,38 @@ $(document).ready(function () {
   //click on circles
   $(".nav > i").click(
     function(){
-      $(this)
-      userSelection()
+
+      var userSelect = $(this);
+      $(".nav > i").removeClass("active");
+      userSelect.addClass("active");
+
+
+      //se il primo circle e selezionato allora anche la prima img
+      if($(".nav > i:first-Child").hasClass("active")) {
+        $(".images > img").removeClass("active");
+        $(".images > img:first-child").addClass("active")
+      }
+      //se il secondo circle e selezionato allora anche la seconda img
+      else if($(".nav > i:nth-Child(2)").hasClass("active")) {
+        $(".images > img").removeClass("active");
+        $(".images > img:nth-child(2)").addClass("active")
+      }
+      //se il terzo circle e selezionato allora anche la terza img
+      else if($(".nav > i:nth-Child(3)").hasClass("active")) {
+        $(".images > img").removeClass("active");
+        $(".images > img:nth-child(3)").addClass("active")
+      }
+      //se ultimo e selezionato allora anche la ultima img
+      else if($(".nav > i:last-Child").hasClass("active")) {
+        $(".images > img").removeClass("active");
+        $(".images > img:last-child").addClass("active")
+      }
+
     }
   );
 
-});
+}
+);
 //FUNZIONI
 //cliccando su freccia destra dello slider la class .active viene tolta a currentElement
 //la class .active viene aggiunta ad element successivo dello slider
@@ -103,7 +129,3 @@ function prevElement(){
 //se first circle active allora first img active
 //se first circle active allora gli altri circle class active removeClass
 //se first img active allora le altre img class active remove
-function userSelection() {
-  $(!this).removeClass("active");
-  $(this).addClass("active");
-}
