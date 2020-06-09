@@ -1,17 +1,28 @@
 //myJavaScript
 $(document).ready(function () {
 
+  //click next on the slider arrow
   $(".next").click(
     function(){
       nextElement();
     }
   );
 
+  //click prev on the slider arrow
   $(".prev").click(
     function(){
       prevElement();
     }
   );
+
+  //click on circles
+  $(".nav > i").click(
+    function(){
+      $(this)
+      userSelection()
+    }
+  );
+
 });
 //FUNZIONI
 //cliccando su freccia destra dello slider la class .active viene tolta a currentElement
@@ -51,10 +62,6 @@ function nextElement(){
   }
 };
 
-
-
-
-
 //cliccando su freccia sinistra dello slider la class .active viene tolta a currentElement
 //la class .active viene aggiunta ad element precedente dello slider
 //quando si arriva a first-child element dello slider la class .active viene data a last-child element
@@ -90,4 +97,13 @@ function prevElement(){
   else {
     currentCircle.prev("i").addClass("active");
   }
+}
+
+//cliccando su first circle si apre first img e cosi via per ogni elemento
+//se first circle active allora first img active
+//se first circle active allora gli altri circle class active removeClass
+//se first img active allora le altre img class active remove
+function userSelection() {
+  $(!this).removeClass("active");
+  $(this).addClass("active");
 }
