@@ -3,13 +3,13 @@ $(document).ready(function () {
 
   $(".next").click(
     function(){
-      nextElement()
+      nextElement();
     }
   );
 
   $(".prev").click(
     function(){
-
+      prevElement();
     }
   );
 });
@@ -40,8 +40,8 @@ function nextElement(){
 
   //rimuovi classe .active a circle corrente
   currentCircle.removeClass("active");
-  
-  //Se mi trovo su ultima img sposto class .active su prima img dello Slider
+
+  //Se mi trovo su ultima icon circle sposto class .active su prima icon circle dello Slider
   if(currentCircle.hasClass("last")) {
     $(".nav > i.first").addClass("active");
   }
@@ -60,6 +60,34 @@ function nextElement(){
 //quando si arriva a first-child element dello slider la class .active viene data a last-child element
 function prevElement(){
   //img slider
+  //immagine corrente slider
+  var currentImg = $(".images > img.active");
+
+  //rimuovi classe .active a immagine corrente
+  currentImg.removeClass("active");
+
+  //Se mi trovo su prima img sposto class .active su ultima img dello Slider
+  if(currentImg.hasClass("first")) {
+    $(".images > img.last").addClass("active");
+  }
+  //altrimenti aggiungi classe .active a immagine successiva
+  else {
+    currentImg.prev("img").addClass("active");
+  }
 
   //circles slider
+  //circle corrente slider
+  var currentCircle = $(".nav > i.active");
+
+  //rimuovi classe .active a circle corrente
+  currentCircle.removeClass("active");
+
+  //Se mi trovo su prima icon circle sposto class .active su ultima icon circle dello Slider
+  if (currentCircle.hasClass("first")) {
+    $(".nav > i.last").addClass("active");
+  }
+  //altrimenti aggiungi classe .active a immagine successiva
+  else {
+    currentCircle.prev("i").addClass("active");
+  }
 }
