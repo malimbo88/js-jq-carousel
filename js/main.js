@@ -20,18 +20,36 @@ $(document).ready(function () {
 function nextElement(){
   //img slider
   //immagine corrente slider
-  var currentImg = $(".images > .active");
+  var currentImg = $(".images > img.active");
 
   //rimuovi classe .active a immagine corrente
   currentImg.removeClass("active");
 
-  //aggiungi classe .active a immagine successiva
-  
-
-
+  //Se mi trovo su ultima img sposto class .active su prima img dello Slider
+  if(currentImg.hasClass("last")) {
+    $(".images > img.first").addClass("active")
+  }
+  //altrimenti aggiungi classe .active a immagine successiva
+  else {
+    currentImg.next("img").addClass("active");
+  }
 
   //circles slider
-}
+  //circle corrente slider
+  var currentCircle = $(".nav > i.active");
+
+  //rimuovi classe .active a circle corrente
+  currentCircle.removeClass("active");
+  
+  //Se mi trovo su ultima img sposto class .active su prima img dello Slider
+  if(currentCircle.hasClass("last")) {
+    $(".nav > i.first").addClass("active");
+  }
+  //altrimenti aggiungi classe .active a circle successiva
+  else {
+    currentCircle.next("i").addClass("active");
+  }
+};
 
 
 
